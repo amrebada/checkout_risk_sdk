@@ -1,11 +1,11 @@
 name: checkout_risk_sdk
 description: "A new Flutter plugin project."
 version: 0.0.1
-homepage:
+homepage: https://amrebada.com
 
 environment:
   sdk: ^3.5.4
-  flutter: '>=3.3.0'
+  flutter: ">=3.3.0"
 
 dependencies:
   flutter:
