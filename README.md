@@ -61,4 +61,5 @@ void main() async {
     ...
 
     final token = await sdk.publishData();
+}
 ```
