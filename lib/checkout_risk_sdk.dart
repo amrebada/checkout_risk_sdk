@@ -20,8 +20,14 @@ class CheckoutRiskSdk {
   /// Throws an exception if initialization fails.
   Future<void> initialize(
       String publicKey, CheckoutRiskEnvironment environment) async {
-    await CheckoutRiskSdkPlatform.instance
-        .initialize(publicKey, environment.value);
+    try {
+      await CheckoutRiskSdkPlatform.instance
+          .initialize(publicKey, environment.value);
+    } catch (e) {
+      // Log the error and rethrow it
+      print('Error initializing CheckoutRiskSdk: $e');
+      rethrow;
+    }
   }
 
   /// Publishes data using the CheckoutRiskSdkPlatform instance.

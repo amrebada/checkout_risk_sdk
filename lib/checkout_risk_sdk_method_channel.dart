@@ -28,7 +28,10 @@ class MethodChannelCheckoutRiskSdk extends CheckoutRiskSdkPlatform {
       });
     } on PlatformException catch (e, stackTrace) {
       _logger.severe('Error initializing the SDK: ${e.message}', e, stackTrace);
-      throw Exception(e);
+      throw Exception('PlatformException: ${e.code}, ${e.message}');
+    } catch (e, stackTrace) {
+      _logger.severe('Unexpected error initializing the SDK', e, stackTrace);
+      throw Exception('Unexpected error: $e');
     }
   }
 
