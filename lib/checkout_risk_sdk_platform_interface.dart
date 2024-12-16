@@ -2,6 +2,13 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'checkout_risk_sdk_method_channel.dart';
 
+/// The interface that implementations of checkout_risk_sdk must implement.
+///
+/// Platform implementations should extend this class rather than implement it as `checkout_risk_sdk`
+/// does not consider newly added methods to be breaking changes. Extending this class
+/// (using `extends`) ensures that the subclass will get the default implementation, while
+/// platform implementations that `implements` this interface will be broken by newly added
+/// [CheckoutRiskSdkPlatform] methods.
 abstract class CheckoutRiskSdkPlatform extends PlatformInterface {
   /// Constructs a CheckoutRiskSdkPlatform.
   CheckoutRiskSdkPlatform() : super(token: _token);
@@ -23,16 +30,33 @@ abstract class CheckoutRiskSdkPlatform extends PlatformInterface {
     _instance = instance;
   }
 
+  /// Returns the current platform version.
+  ///
+  /// Platform implementations should throw an appropriate exception if
+  /// the platform version cannot be retrieved.
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
 
-  // Method to initialize the SDK
+  /// Initializes the Risk SDK with the provided configuration.
+  ///
+  /// Parameters:
+  /// - [publicKey]: The public key provided by Checkout.com
+  /// - [environment]: The environment to use ('sandbox' or 'production')
+  ///
+  /// Throws:
+  /// - [ArgumentError] if parameters are invalid
+  /// - [CheckoutRiskException] if initialization fails
   Future<void> initialize(String publicKey, String environment) async {
     throw UnimplementedError('initialize() has not been implemented.');
   }
 
-  // Method to publish device data
+  /// Publishes device data to Checkout.com's risk engine.
+  ///
+  /// Returns a device session ID that can be used in subsequent API calls.
+  ///
+  /// Throws:
+  /// - [CheckoutRiskException] if data publishing fails
   Future<String?> publishData() async {
     throw UnimplementedError('publishData() has not been implemented.');
   }
