@@ -38,7 +38,7 @@ Add the following to your `android/app/build.gradle` file:
 ```gradle
 dependencies {
     ...
-    implementation 'com.github.checkout:checkout-risk-sdk-android:2.0.0'
+    implementation 'com.github.checkout:checkout-risk-sdk-android:2.1.0'
 }
 ```
 
