@@ -1,6 +1,6 @@
 name: checkout_risk_sdk
 description: "Unofficial Flutter plugin for the Checkout.com Risk API."
-version: 0.0.3
+version: 0.0.4
 homepage: https://amrebada.com
 
 environment:
